@@ -1,0 +1,38 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:df="nativescript-ui-dataform">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <GridLayout class="add-post" rows="auto, *">
+
+        <df:RadDataForm row="0" id="myDataForm" source="{{ dataform }}" propertyCommitted="onPropertyCommitted">
+            <df:RadDataForm.properties>
+                <df:EntityProperty name="title" displayName="Title" index="0">
+
+                    <df:EntityProperty.validators>
+                        <df:NonEmptyValidator errorMessage="Title can't be empty." />
+                        <df:MinimumLengthValidator errorMessage="Title can be at least 2 characters long." length="2" />
+                    </df:EntityProperty.validators>
+                </df:EntityProperty>
+
+                <df:EntityProperty name="message" displayName="Message" index="1">
+
+                    <df:EntityProperty.validators>
+                        <df:NonEmptyValidator errorMessage="Message can't be empty." />
+                    </df:EntityProperty.validators>
+                </df:EntityProperty>
+            </df:RadDataForm.properties>
+        </df:RadDataForm>
+       
+        <Button row="1" id="btn-primary" class="btn btn-primary" text="Post to forum" tap="onTap" visibility="visible" isEnabled="false"/>
+    
+    </GridLayout>
+</Page>

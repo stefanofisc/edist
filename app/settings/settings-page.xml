@@ -1,0 +1,100 @@
+<Page navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <GridLayout class="settings-content">
+        <lv:RadListView id="list-group" items="{{ dataItems }}">
+            <lv:RadListView.itemTemplate>
+                <StackLayout orientation="vertical" padding="1 0 1 0">
+                    <Label id="settings-header" text="{{ header || '' }}" textWrap="true" height="{{ width || '0' }}" />
+                    <GridLayout class="settings-list" columns="auto, *, auto">
+                        <Image col="0" src="{{ iconurl || '' }}" width="24" height="24" class="fa"/>
+                        <StackLayout class="settings-item" col="1" orientation="vertical" marginLeft="15">
+                            <Label id="label-primary" text="{{ item }}" textWrap="true"/>
+                        </StackLayout>
+                        <Label col="2" text="{{ customarrow || '&#xf105;' }}" class="fa" textWrap="true" />
+                    </GridLayout>
+                </StackLayout>
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+    </GridLayout>
+</Page>
+
+<!-- SETTTINGS
+<ScrollView>
+            <ListView items="{{ myItems }}" itemTap="onItemTap" loaded="{{ onListViewLoaded }}" class="list-group" id="listView" row="2">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-group-item">
+                        <GridLayout columns="auto, *, auto" id="list-item">
+                            <Label row="0" col="1" text="{{ item || 'Downloading...' }}" textWrap="true" class="title" id="element"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+        </ScrollView>
+
+
+-->
+
+
+
+<!--    CONTENUTO PAGINA COSTRUITO IN MODO STATICO CON ICONE
+<GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Visualizza">
+                            <Label row="0" col="0" text="&#xf007;  " class="fa" />
+                            <Label row="0" col="1" text="Visualizza" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Messaggistica">
+                            <Label row="0" col="0" text="&#xf075;  " class="fa" />
+                            <Label row="0" col="1" text="Messaggistica" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="File personali">
+                            <Label row="0" col="0" text="&#xf15b;  " class="fa" />
+                            <Label row="0" col="1" text="File personali" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Notifiche">
+                            <Label row="0" col="0" text="&#xf0f3;  " class="fa" />
+                            <Label row="0" col="1" text="Notifiche" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Calendario">
+                            <Label row="0" col="0" text="&#xf073;  " class="fa" />
+                            <Label row="0" col="1" text="Calendario" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Impostazioni avanzate">
+                            <Label row="0" col="0" text="&#xf085;  " class="fa" />
+                            <Label row="0" col="1" text="Impostazioni Avanzate" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Rinuncia agli studi">
+                            <Label row="0" col="0" text="&#xf091;  " class="fa" />
+                            <Label row="0" col="1" text="Rinuncia agli studi" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+                        <GridLayout columns="auto, *, auto" class="list-group-item" id="listView" tap="onItemTap" title="Blog del sito">
+                            <Label row="0" col="0" text="&#xf032;  " class="fa" />
+                            <Label row="0" col="1" text="Blog del sito" class="p-r-10"/>
+                            <Label row="0" col="2" text="&#xf105;" class="fa" />
+                        </GridLayout>
+
+-->

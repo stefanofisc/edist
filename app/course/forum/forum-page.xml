@@ -1,0 +1,81 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <GridLayout id="forum-page-buttons" columns="*, 80">
+            <Label col="0" class="action-bar-title" text="{{ title }}" textWrap="true"></Label>
+        </GridLayout>
+    </ActionBar>
+
+    <ScrollView>
+        <StackLayout>
+            <GridLayout orientation="vertical" rows="auto,*" class="forum-content">
+                <!-- << listview-post della discussione -->
+                <lv:RadListView row="0" class="forum-list-group" id="list-group" items="{{ dataItems }}">
+                    <lv:RadListView.listViewLayout>
+                        <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                    </lv:RadListView.listViewLayout>
+                    <lv:RadListView.itemTemplate>
+                        <StackLayout>
+                            <GridLayout rows="*" class="forum-grid-layout">
+                                <GridLayout class="forum-grid-layout-1" rows="*" columns="{{ columns || '*' }}" marginBottom="2" marginRight="2">
+
+                                    <Image id="authorimg" col="{{ imgcol || '0' }}" src="{{ imageurl || '' }}" visibility="{{ imageVisibility || 'hidden' }}" />
+                                    <GridLayout col="{{ grdcol || '0' }}">
+                                        <StackLayout class="my-discussion-list">
+                                            <Label text="{{ subject || filename }} " id="label-primary" textWrap="true" />
+                                            <Label text="" id="separator" textWrap="true"/>
+                                            <StackLayout class="my-discussion-list-item" col="0">
+                                                <Label text="{{ 'Di: ' + author + ' - ' + date }}" class="author" id="label-secondary" textWrap="true" />
+                                                <Label text="" id="separator" textWrap="true"/>
+                                                <Label text="{{ message || 'Risposte: ' + numReplies || '' }}" id="label-secondary" textWrap="true"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </GridLayout>
+                                </GridLayout>
+                            </GridLayout>
+                        </StackLayout>
+                    </lv:RadListView.itemTemplate>
+                </lv:RadListView>
+                <StackLayout row="1" id="item">
+                </StackLayout>
+            </GridLayout>
+            <!-- <StackLayout id="forum-page-buttons">
+            </StackLayout> -->
+        </StackLayout>
+    </ScrollView>
+</Page>
+
+<!--
+<ScrollView class="page-content">
+        <StackLayout>
+            <GridLayout orientation="vertical" rows="auto, *">
+                <lv:RadListView row="0" id="list-group" items="{{ dataItems }}">
+                    <lv:RadListView.listViewLayout>
+                        <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                    </lv:RadListView.listViewLayout>
+                    <lv:RadListView.itemTemplate>
+                        <StackLayout orientation="vertical" padding="1 0 1 0">
+                            <StackLayout class="my-course-list" orientation="horizontal">
+                                <StackLayout class="my-course-list-item" orientation="vertical" marginLeft="15">
+                                    <Label text="{{ subject || filename }} " id="label-primary" textWrap="true" />
+                                    <Label fontSize="10" text="{{ header || 'Di: ' + author }}" id="label-secondary" textWrap="true" />
+                                    <Label text="{{ message || 'Risposte: ' + numReplies || '' }}" id="label-secondary" textWrap="true"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                    </lv:RadListView.itemTemplate>
+                </lv:RadListView>
+                <StackLayout row="1" id="forum-page-buttons">
+                </StackLayout>
+            </GridLayout>
+        </StackLayout>
+    </ScrollView>
+
+-->

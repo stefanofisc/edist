@@ -1,0 +1,638 @@
+// Place any CSS rules you want to apply on both iOS and Android here.
+// This is where the vast majority of your CSS code goes.
+
+// Font icon class
+.fa {
+  font-family: "FontAwesome";
+}
+
+.separator {
+  height: 1;
+  border-width: 1;
+  border-color: $page-icon-color;
+}
+
+// Common page class
+.page-content {
+  background-color: $background;
+
+  .page-placeholder {
+    // color: $page-icon-color;
+    color: $accent;
+    font-size: $page-content-placeholder-font-size;
+    vertical-align: center;
+    horizontal-align: center;
+  }
+
+  .page-icon {
+    font-size: 72;
+    vertical-align: top;
+    horizontal-align: center;
+    // color: $page-icon-color;
+    color: $accent;
+    margin-top: 10%;
+  }
+
+  // .separator {
+  //   height: 1;
+  //   border-width: 1;
+  //   border-color: $page-icon-color;
+  // }
+  #label-header {
+    background-color: $background;
+    margin-left: 10;
+    font-weight: bold;
+    padding: 10;
+  }
+}
+//Action bar
+ActionBar .action-bar-title {
+  horizontal-align: center;
+}
+
+// Login screen
+FlexboxLayout.login {
+  background-color: $background-dark;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  padding: 35;
+  StackLayout.login {
+    width: 300;
+    padding: 10 16;
+    background-color: $background-light;
+
+    image.login {
+      margin-left: 15;
+      margin-right: 15;
+      margin-bottom: 20;
+    }
+    RadDataForm.login {
+      color: $accent;
+    }
+    #login-btn {
+      background-color: $accent-green;
+      border-radius: 20;
+      height: 40;
+    }
+    #lost-pwd {
+      padding: 10;
+    }
+  }
+  image.moodle {
+    vertical-align: bottom;
+    background-position: bottom;
+    margin-bottom: -30;
+    height: 50;
+    width: 100;
+    padding: 15;
+  }
+  PropertyEditor {
+    color: black;
+    font-size: 14;
+  }
+
+  DataFormEditorCore {
+    margin: 5;
+    background-color: white;
+    border-color: $background-dark;
+    border-width: 0.1;
+    border-radius: 20;
+  }
+}
+
+// TabView
+.tabViewContainer {
+  tab-background-color: $background-light;
+}
+
+// Dashboard
+
+.dashboard-item-container {
+  background-color: white;
+  border-width: 0.5;
+  border-color: $background-dark;
+  border-radius: 15;
+  margin-left: 8;
+  margin-right: 8;
+  margin-top: 8;
+  height: 200;
+
+  .dashboard-item-header {
+    padding: 10;
+    height: 50;
+
+    .dashboard-item-icon {
+      text-align: center;
+      padding: 10;
+    }
+    .dashboard-item-label {
+      text-align: center;
+      // padding-top: 10;
+      // padding-bottom: 10;
+      font-family: "Nordica Plus", "nordicaclassicltext";
+      font-size: 18;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .list-group {
+    
+    #item-stack-layout {
+      // height: 180;
+      margin-top: 5;
+      margin-bottom: 5;
+      margin-left: 5;
+      margin-right: 5;
+
+      .grid-layout {
+        margin-right: 2;
+        height: 120;
+        .grid-layout-1 {
+          
+          #icon {
+            background-color: $accent-green;
+            color: white;
+            text-align: center;
+            font-size: 30;
+            // height: 40;
+            // padding-top: 10;
+            // padding-bottom: 10;
+          }
+          .my-course-list-item {
+            // background-color: $background-dark;
+            border-width: 1;
+            border-color: $background-dark;
+            font-size: 18;
+            font-weight: 500;
+            padding: 10;
+            // padding-top: 8;
+            padding-bottom: 8;
+            padding-left: 16;
+            padding-right: 16;
+
+            #course-summary {
+              font-size: 15;
+              font-weight: 100;
+              color: black;
+            }
+          }
+        }
+        // .starred {
+        //   background-color: $accent-light;
+        // }
+        // .recent {
+        //   background-color: $accent-green;
+        // }
+        // .courses {
+        //   background-color: rgb(59, 59, 59);
+        // }
+        // #root {
+        //   text-align: left;
+        //   vertical-align: top;
+        //   font-size: 20;
+        //   color: white;
+        //   margin-left: 8;
+        // }
+      }
+    }
+  }
+}
+
+// Home page
+.home-content {
+  // background-color: $blue-dark;
+  background-color: $background;
+
+  .home-item-stack {
+    padding-top: 8;
+    padding-bottom: 8;
+    padding-right: 16;
+    padding-left: 16;
+
+    .home-item-name {
+      color: white;
+      font-family: "Nordica Plus", "nordicaclassicltext";
+      font-weight: bold;
+      font-size: 30;
+      // background-color: rgb(0, 0, 0); /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.26);
+    }
+
+    .home-item-description {
+      color: $background-dark;
+      font-family: "Nordica Plus", "nordicaclassicltext";
+      font-size: 18;
+      text-transform: uppercase;
+      margin-bottom: 5;
+      // background-color: rgb(0, 0, 0); /* Fallback color */
+      background-color: rgba(0, 0, 0, 0.26);
+    }
+  }
+  .home-item-stack#contacts {
+    background-color: $accent;
+
+    .separator {
+      height: 1;
+      border-width: 0.5;
+      border-color: white;
+    }
+    .footer {
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      padding-left: 40;
+      padding-right: 40;
+    }
+  }
+
+  .home-page-item {
+    padding-left: 16;
+    padding-right: 16;
+    padding-top: 8;
+    padding-bottom: 8;
+    margin-bottom: 3;
+    margin-top: 10;
+    height: 60;
+
+    .fa {
+      color: white;
+      height: 50;
+      margin-top: 30;
+    }
+    .contact-button {
+      width: 35;
+      height: 35;
+      margin-left: 30;
+      margin-bottom: 5;
+      border-width: 5;
+      border-radius: 50;
+      border-color: white;
+    }
+  }
+}
+.dashboard-void-image {
+  height: 120;
+  width: 120;
+}
+
+// Featured - Browse I miei corsi e lista categorie
+.list-group {
+  .featured-grid-layout {
+    padding-left: 8;
+    padding-right: 8;
+    margin-bottom: 10;
+    // box-shadow: 5 10 black;
+    .featured-grid-layout-1 {
+      border-width: 0.5;
+      border-color: $separator-color;
+      height: 100;
+      background-color: white;
+      #icon {
+        background-image: linear-gradient(to bottom right, $accent-green, $accent-green);
+        color: white;
+        text-align: center;
+        padding-top: 20;
+        padding-bottom: 20;
+        font-size: 30;
+        margin-top: 10;
+        margin-bottom: 10;
+        margin-left: 15;
+        border-radius: 10;
+      }
+      #customimage {
+        margin-top: 10;
+        margin-bottom: 10;
+        margin-left: 15;
+        border-radius: 5;
+      }
+      .my-course-list-item {
+        // background-color: white;
+        font-size: 18;
+        font-weight: 500;
+        padding: 20;
+        padding-top: 8;
+        padding-bottom: 8;
+        padding-left: 16;
+        padding-right: 16;
+        vertical-align: top;
+        margin-top: 20;
+
+        #course-summary {
+          font-size: 15;
+          font-weight: 100;
+        }
+      }
+    }
+  }
+}
+.item-info {
+  margin-top: -10;
+  margin-bottom: 10;
+  margin-left: 8;
+  margin-right: 10;
+  border-width: 0.1;
+  border-top-width: 0;
+  border-color: $separator-color;
+  height: auto;
+  background-color: $item-active-background;
+  #item {
+    margin-top: 5;
+  }
+}
+#category-cover {
+  height: auto;
+}
+
+// Course - Pagina del corso
+.list-group {
+  margin-left: 0;
+  margin-right: 0;
+  .course-content {
+    .my-course-list#section-title {
+      background-color: $background-dark;
+      height: 35;
+    }
+    .my-course-list#section-content {
+      height: auto;
+    }
+    // .my-course-list#separator {
+    //   background-color: $background-dark;
+    //   height: 35;
+    // }
+    .my-course-list {
+      padding: 10;
+      background-color: white;
+      .my-course-list-item {
+        margin-left: 15;
+        #section-title {
+          color: $side-drawer-header-brand;
+          font-size: 14;
+          font-weight: bold;
+          text-align: left;
+          margin-top: -3;
+        }
+        #section-content {
+          color: black;
+          font-size: 16;
+          margin-left: 10;
+          // margin-top: 10;
+        }
+        #htmlsection {
+          height: auto;
+        }
+        #label-primary {
+          font-size: 16;
+          font-weight: bold;
+        }
+        #label-secondary {
+          font-size: 14;
+        }
+        .fa {
+          margin-top: 8;
+        }
+      }
+      .fa {
+        margin-top: 10;
+      }
+    }
+  }
+}
+
+// Search - Ricerca corsi
+.search-content {
+  // .search-header-img {
+  //   height: 150;
+  //   background-color: $blue-light;
+  //   padding-left: 16;
+  //   padding-right: 16;
+
+  //   #search-header-text {
+  //     font-size: 25;
+  //     color: white;
+  //     vertical-align: center;
+  //     margin-left: 25;
+  //     padding: 20px 26px;
+  //   }
+  //   .icon {
+  //     height: 50;
+  //     width: 50;
+  //   }
+  // }
+  #searchBar {
+    background-color: $accent;
+    color: white;
+  }
+  #search-result-header {
+    background-color: white;
+    font-weight: bold;
+    font-size: $page-content-placeholder-font-size;
+    text-align: left;
+    padding: 10;
+    height: 60;
+  }
+  .search-no-result#search-result-header {
+    // background-color: white;
+    background-image: url("http://192.167.9.181/server/icons/annulled-emoticon-square-face.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    font-weight: bold;
+    font-size: $page-content-placeholder-font-size;
+    text-align: center;
+    padding: 10;
+    height: 250;
+  }
+}
+
+// My profile
+.my-profile-page-content {
+  margin-left: 8;
+  margin-right: 8;
+  margin-top: 8;
+  .banner {
+    background-image: linear-gradient(to bottom right, $accent, $accent);
+    border-radius: 8;
+    .profileimage {
+      vertical-align: top;
+      horizontal-align: center;
+      margin-top: 5%;
+      border-radius: 50;
+      height: 100;
+      width: 100;
+    }
+    #username {
+      color: white;
+      padding: 20;
+    }
+  }
+  #profile-button-save {
+    background-color: $accent-green;
+  }
+}
+
+// Forum
+.forum-list-group {
+  .forum-grid-layout {
+    margin-top: 5;
+    margin-bottom: 5;
+    margin-left: 0;
+    margin-right: 0;
+    .forum-grid-layout-1 {
+      height: auto;
+      background-color: white;
+      #authorimg {
+        margin-top: 10;
+        margin-bottom: 10;
+        margin-left: 15;
+        border-radius: 50;
+      }
+      .my-discussion-list {
+        padding: 5;
+        #label-primary {
+          font-size: 20;
+          font-weight: bold;
+        }
+        #separator {
+          border-top-width: 0.3;
+          border-top-color: $background-dark;
+        }
+        .my-discussion-list-item {
+          .author {
+            color: $accent;
+            font-style: italic;
+          }
+          #label-secondary {
+            margin-left: 5;
+            font-size: 13;
+          }
+        }
+      }
+    }
+  }
+}
+.attachment {
+  width: 60;
+  height: 60;
+}
+.attachment-name {
+  color: $accent;
+}
+
+// Settings
+.settings-content {
+  background-color: $background;
+
+  #settings-header {
+    font-weight: bold;
+    margin-left: 15;
+    padding: 8;
+  }
+
+  .settings-list {
+    padding: 10;
+    background-color: white;
+    .settings-item {
+      #label-primary {
+        font-size: 16;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+// Manage users
+.manage-users-content {
+  RadDataForm {
+    margin-left: 15%;
+    margin-right: 15%;
+    vertical-align: top;
+    margin-top: 5%;
+    PropertyEditor {
+      color: black;
+      font-size: 14;
+      background-color: white;
+    }
+
+    PropertyEditor[type="Picker"] {
+    }
+  }
+  #btn-primary {
+    vertical-align: top;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+}
+
+// Add post
+.add-post {
+  padding: 10 16;
+  RadDataForm {
+    vertical-align: top;
+    margin-top: 5%;
+    height: auto;
+    PropertyEditor {
+      color: black;
+      font-size: 14;
+      background-color: white;
+      border-radius: 20;
+      margin-top: 5;
+    }
+  }
+  #btn-primary {
+    vertical-align: top;
+    margin-top: 5%;
+  }
+}
+
+// Bottone
+#btn-primary {
+  background-color: $accent-green;
+  color: white;
+  width: 250;
+  height: 40;
+  border-radius: 20;
+}
+
+// ListView
+.list-group-item {
+  color: black;
+  background-color: $background-light;
+  font-size: $list-group-item-font-size;
+  text-align: left;
+  padding: 20;
+
+  border-color: $separator-color;
+  border-width: 0.5;
+}
+
+// Search template
+// #search-result-header {
+//   font-size: $page-content-placeholder-font-size;
+//   text-align: left;
+//   padding: 10;
+//   height: 60;
+// }
+
+// MyProfile
+#settings-button {
+  color: white;
+  background-color: $accent;
+  height: auto;
+}
+
+// Bottom settings
+.bottom-settings-label {
+  background-color: $background-dark;
+  color: black;
+  font-size: 10;
+  text-align: center;
+}
+.bottom-settings-icon {
+  background-color: $background-dark;
+  color: black;
+  font-size: 16;
+  text-align: center;
+  border-top-color: $separator-color;
+  border-top-width: 0.5;
+}

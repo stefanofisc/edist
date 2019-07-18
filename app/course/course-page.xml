@@ -1,0 +1,41 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <GridLayout columns="*, 80">
+            <Label col="0" class="action-bar-title" text="{{ title }}" textWrap="true"></Label>
+            <Label col="1" id="settings-button" text="&#xf013;" tap="mySettings" class="fa"/>
+        </GridLayout>
+    </ActionBar>
+
+    <GridLayout >
+
+        <lv:RadListView class="list-group" id="list-group" items="{{ dataItems }}">
+
+            <lv:RadListView.itemTemplate>
+
+                <StackLayout class="course-content" padding="1 0 1 0">
+                    <GridLayout class="my-course-list" id="{{ id }}" columns="auto, *, auto">
+                        <Image col="0" src="{{ iconURL || '~/app-root/resources/icons/render.png' }}" width="{{ width || 24 }}" height="{{ height || 24 }}" class="fa" visibility="{{ notvisible || 'visible' }}"/>
+                        <GridLayout class="my-course-list-item" col="1" rows="auto,*" > 
+                        <!-- si può fare che dentro lo stacklayout si crea dinamicamente o uno o l'altro -->
+                            <Label row="0" text="{{ foldername || '' }}" textWrap="true" height="{{ h || '0' }}"/>
+                            <Label row="1" id="{{ id }}" text="{{ filename || '' }}" textWrap="true" visibility="{{ normalLabelVisibility || 'hidden' }}"/>
+                            <HtmlView row="1" id="{{ id }}" html="{{ htmltext || '' }}" textWrap="true" visibility="{{ htmlvisibility || 'hidden' }}"/>
+                        </GridLayout>
+                        <Image col="2" src="{{ noarrow || 'http://192.167.9.181/server/icons/arrow-black.png' }}" width="24" height="24" class="fa" />
+                    </GridLayout>
+                </StackLayout>
+
+            </lv:RadListView.itemTemplate>
+
+        </lv:RadListView>
+
+    </GridLayout>
+</Page>

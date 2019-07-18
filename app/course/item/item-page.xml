@@ -1,0 +1,25 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:pdf="nativescript-pdf-view" 
+    xmlns:VideoPlayer="nativescript-videoplayer">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <GridLayout columns="*, 80">
+            <Label col="0" class="action-bar-title" text="{{ title }}" textWrap="true"></Label>
+            <Label col="1" id="settings-button" text="&#xf0c7;" tap="saveFile" class="fa" visibility="hidden"/>
+        </GridLayout>
+    </ActionBar>
+
+    <GridLayout class="page-content" id="grid-content">
+        <ScrollView>
+            <StackLayout id="file-content">
+            </StackLayout>
+        </ScrollView>
+    </GridLayout>
+
+</Page>

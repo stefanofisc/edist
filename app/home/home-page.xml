@@ -1,0 +1,207 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <GridLayout columns="*, 80">
+            <Label col="0" class="action-bar-title" text="{{ title }}"></Label>
+            <Label col="1" id="settings-button" text="&#xf011;" tap="onLogout" class="fa"/>
+        </GridLayout>
+    </ActionBar>
+
+    <GridLayout rows="*" columns="*">
+        <!-- >> tab-view-navigation-xml -->
+        <TabView id="mytabview" loaded="onLoaded" selectedIndex="{{tabSelectedIndex}}" selectedIndexChanged="onSelectedIndexChanged" androidSelectedTabHighlightColor="#038309">
+            <TabViewItem title="Home page">
+                <ScrollView>
+                    <FlexboxLayout flexDirection="column" class="home-content">
+                        <Label id="isLoaded" text="0" visibility="hidden" height="0" />
+
+                        <GridLayout id="category" rows="*" height="200">
+                            <GridLayout rows="*" columns="*" margin="0">
+                                <Image src="https://www.uniparthenope.it/sites/default/files/styles/slider_full/public/immagini_slider/doria.jpg?itok=VyBP0R0w" stretch="aspectFill" height="180" class="home-item-image"/>
+                                <GridLayout verticalAlignment="bottom">
+                                    <StackLayout class="home-item-stack">
+                                        <Label text="Categorie di corso" class="home-item-name" />
+                                        <Label text="Naviga tra le categorie" class="home-item-description" />
+                                    </StackLayout>
+                                </GridLayout>
+                            </GridLayout>
+                        </GridLayout>
+
+                        <GridLayout id="search" rows="*" height="200">
+                            <GridLayout rows="*" columns="*" margin="0">
+                                <Image src="http://www.scienzeetecnologie.uniparthenope.it/images/Centro_Direzionale_Napoli.jpg" stretch="aspectFill" height="180" class="home-item-image" />
+                                <GridLayout verticalAlignment="bottom">
+                                    <StackLayout class="home-item-stack">
+                                        <Label text="Cerca corsi" class="home-item-name" />
+                                        <Label text="Accedi rapidamente ad un corso" class="home-item-description" />
+                                    </StackLayout>
+                                </GridLayout>
+                            </GridLayout>
+                        </GridLayout>
+
+                        <GridLayout id="contacts" rows="*" height="200">
+                            <GridLayout >
+                                <StackLayout class="home-item-stack" id="contacts">
+                                    <Label text="Contatti" class="home-item-name" />
+                                    <Label text="I nostri contatti" class="home-item-description" />
+                                    <Label text="" class="separator" />
+                                    <GridLayout class="home-page-item" id="contacts-icons" columns="auto, auto, auto, auto">
+                                        <Image class="contact-button" id="fb" col="0" src="http://192.167.9.181/server/icons/facebook.png" />
+                                        <Image class="contact-button" id="tw" col="1" src="http://192.167.9.181/server/icons/twitter.png" />
+                                        <Image class="contact-button" id="ig" col="2" src="http://192.167.9.181/server/icons/instagram.png" />
+                                        <Image class="contact-button" id="yt" col="3" src="http://192.167.9.181/server/icons/youtube.png" />
+                                    </GridLayout>
+                                    <Label text="" class="separator" />
+                                    <Label text="Università degli Studi di Napoli Parthenope" class="footer" textWrap="true" />
+                                </StackLayout>
+                            </GridLayout>
+                        </GridLayout>
+                        <!-- <Image id="home-page-cover" src="http://192.167.9.181/server/icons/uniparthenope.jpg" stretch="aspectFill"/> -->
+                        <!-- >> lista elementi della homepage VECCHIO STILE-->
+                        <!-- <GridLayout rows="auto, auto, auto">
+                            <GridLayout row="0" class="home-page-item" id="cat" columns="auto, *, auto">
+                                <Image class="icon" col="0" src="http://192.167.9.181/server/icons/category.jpg" />
+                                <StackLayout class="home-page-item-sl" col="1" orientation="vertical" marginLeft="15">
+                                    <Label class="label" id="category" text="Categorie di corso" textWrap="true"/>
+                                </StackLayout>
+                                <Label col="2" text="&#xf105;" class="fa" />
+                            </GridLayout>
+                            <GridLayout row="1" class="home-page-item" id="src" columns="auto, *, auto">
+                                <Image class="icon" col="0" src="http://192.167.9.181/server/icons/search.png"/>
+                                <StackLayout class="home-page-item-sl" col="1" orientation="vertical" marginLeft="15">
+                                    <Label class="label" id="search" text="Cerca corsi" textWrap="true"/>
+                                </StackLayout>
+                                <Label col="2" text="&#xf105;" class="fa"/>
+                            </GridLayout>
+                            
+                            <GridLayout row="2" class="home-page-item" id="contacts-icons" columns="auto, auto, auto, auto">
+                                <Image class="contact-button" id="fb" col="0" src="http://192.167.9.181/server/icons/facebook.png" />
+                                <Image class="contact-button" id="tw" col="1" src="http://192.167.9.181/server/icons/twitter.png" />
+                                <Image class="contact-button" id="ig" col="2" src="http://192.167.9.181/server/icons/instagram.png" />
+                                <Image class="contact-button" id="yt" col="3" src="http://192.167.9.181/server/icons/youtube.png" />
+                            </GridLayout>
+                        </GridLayout> -->
+
+                    </FlexboxLayout>
+                </ScrollView>
+            </TabViewItem>
+
+            <!-- >> Dashboard -->
+
+            <TabViewItem title="Dashboard">
+                <ScrollView>
+                    <StackLayout id="my-dashboard">
+                        <Label id="dashboardLoaded" text="" height="0"/>
+                        <GridLayout rows="auto, auto, *" columns="*">
+
+                            <!-- >> Preferiti -->
+                            <StackLayout class="dashboard-item-container" row="0">
+                                <GridLayout class="dashboard-item-header" rows="*" col="auto, *">
+                                    <!-- <Label text="&#xf005;" class="dashboard-item-icon" col="0" class="fa" /> -->
+                                    <Label text="" class="dashboard-item-label" id="starred" textWrap="true" col="1"/>
+                                </GridLayout>
+                                <Label text="" class="separator"/>
+                                <lv:RadListView class="list-group" id="starredcourses-list-group" col="0" items="{{ starredCourses }}" marginRight="-2">
+                                    <!-- >> listview-item-layouts-grid-xml -->
+                                    <lv:RadListView.listViewLayout> <!-- itemHeight="250" -->
+                                        <lv:ListViewLinearLayout scrollDirection="Horizontal" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                                    </lv:RadListView.listViewLayout>
+                                    <!-- << listview-item-layouts-grid-xml -->
+                                    <lv:RadListView.itemTemplate>
+                                        <StackLayout orientation="horizontal" class="" id="item-stack-layout">
+                                            <GridLayout rows="*" class="grid-layout" width="140">
+                                                <GridLayout class="grid-layout-1" rows="auto, *" columns="*" marginBottom="2" marginRight="2">
+                                                    <!-- <Image horizontalAlignment="stretch" height="250" ios:stretch="aspectFill" src="{{ image }}"/> -->
+                                                    <Label id="icon" row="0" text="{{ shortname || '' }}" textWrap="true" />
+                                                    <GridLayout row="3">
+                                                        <StackLayout class="my-course-list-item">
+                                                            <Label id="course-name" text="{{ item }}" textWrap="true"/>
+                                                            <!-- <Label id="course-summary" text="{{ summary || '' }}" textWrap="true"/> -->
+                                                        </StackLayout>
+                                                    </GridLayout>
+                                                </GridLayout>
+                                            </GridLayout>
+                                        </StackLayout>
+                                    </lv:RadListView.itemTemplate>
+                                </lv:RadListView>
+                            </StackLayout>
+                            <!-- >> Corsi recenti -->
+
+                            <StackLayout class="dashboard-item-container" row="1">
+                                <GridLayout class="dashboard-item-header" rows="*" col="auto, *">
+                                    <!-- <Label text="&#xf005;" class="dashboard-item-icon" col="0" class="fa" /> -->
+                                    <Label text="" class="dashboard-item-label" id="recent" textWrap="true"/>
+                                </GridLayout>
+                                <Label text="" class="separator"/>
+                                <lv:RadListView class="list-group" id="recentcourses-list-group" row="1" col="0" items="{{ recentCourses }}" marginRight="-2">
+                                    <!-- >> listview-item-layouts-grid-xml -->
+                                    <lv:RadListView.listViewLayout>
+                                        <lv:ListViewLinearLayout scrollDirection="Horizontal" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                                    </lv:RadListView.listViewLayout>
+                                    <!-- << listview-item-layouts-grid-xml -->
+                                    <lv:RadListView.itemTemplate>
+                                        <StackLayout orientation="horizontal" class="" id="item-stack-layout">
+                                            <GridLayout rows="*" class="grid-layout" width="140">
+                                                <GridLayout class="grid-layout-1" rows="auto, *" columns="*" marginBottom="2" marginRight="2">
+                                                    <!-- <Image horizontalAlignment="stretch" height="250" ios:stretch="aspectFill" src="{{ image }}"/> -->
+                                                    <Label id="icon" row="0" text="{{ shortname || '' }}" textWrap="true" />
+                                                    <GridLayout row="3">
+                                                        <StackLayout class="my-course-list-item">
+                                                            <Label id="course-name" text="{{ item }}" textWrap="true"/>
+                                                            <!-- <Label id="course-summary" text="{{ summary || '' }}" textWrap="true"/> -->
+                                                        </StackLayout>
+                                                    </GridLayout>
+                                                </GridLayout>
+                                            </GridLayout>
+                                        </StackLayout>
+                                    </lv:RadListView.itemTemplate>
+                                </lv:RadListView>
+                            </StackLayout>
+                            <!-- >> I miei corsi -->
+
+                            <StackLayout class="dashboard-item-container" row="2">
+                                <GridLayout class="dashboard-item-header" rows="*" col="auto, *">
+                                    <!-- <Label text="&#xf005;" class="dashboard-item-icon" col="0" class="fa" /> -->
+                                    <Label text="" class="dashboard-item-label" id="courses" textWrap="true"/>
+                                </GridLayout>
+                                <Label text="" class="separator"/>
+                                <lv:RadListView class="list-group" id="mycourses-list-group" col="0" items="{{ myCourses }}" marginRight="-2">
+
+                                    <lv:RadListView.listViewLayout>
+                                        <lv:ListViewLinearLayout scrollDirection="Horizontal" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                                    </lv:RadListView.listViewLayout>
+
+                                    <lv:RadListView.itemTemplate>
+                                        <StackLayout orientation="horizontal" class="" id="item-stack-layout">
+                                            <GridLayout rows="*" class="grid-layout" width="140">
+                                                <GridLayout class="grid-layout-1" rows="auto, *" columns="*" marginBottom="2" marginRight="2">
+                                                    <!-- <Image horizontalAlignment="stretch" height="250" ios:stretch="aspectFill" src="{{ image }}"/> -->
+                                                    <Label id="icon" row="0" text="{{ shortname || '' }}" textWrap="true" />
+                                                    <GridLayout row="3">
+                                                        <StackLayout class="my-course-list-item">
+                                                            <Label id="course-name" text="{{ item }}" textWrap="true"/>
+                                                            <!-- <Label id="course-summary" text="{{ summary || '' }}" textWrap="true"/> -->
+                                                        </StackLayout>
+                                                    </GridLayout>
+                                                </GridLayout>
+                                            </GridLayout>
+                                        </StackLayout>
+                                    </lv:RadListView.itemTemplate>
+                                </lv:RadListView>
+                            </StackLayout>
+                        </GridLayout>
+                    </StackLayout>
+                </ScrollView>
+
+            </TabViewItem>
+        </TabView>
+        <!-- << tab-view-navigation-xml -->
+    </GridLayout>
+</Page>

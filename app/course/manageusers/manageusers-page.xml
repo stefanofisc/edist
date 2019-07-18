@@ -1,0 +1,35 @@
+<Page class="page" navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:df="nativescript-ui-dataform">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <GridLayout class="manage-users-content" rows="auto, *">
+
+        <df:RadDataForm row="0" id="myDataForm" source="{{ source }}" propertyCommitted="onPropertyCommitted">
+            <df:RadDataForm.properties>
+                <df:EntityProperty name="user" displayName="User" imageResource="res://ic_dataform_guest" index="0" valuesProvider="{{ usersToUnenrol }}">
+                    <df:EntityProperty.editor>
+                        <df:PropertyEditor type="Picker"/>
+                    </df:EntityProperty.editor>
+                </df:EntityProperty>
+                <df:EntityProperty name="role" displayName="Role" index="1" readOnly="true">
+                    <df:EntityProperty.editor>
+                        <df:PropertyEditor type="Text" />
+                    </df:EntityProperty.editor>
+                </df:EntityProperty>
+
+            </df:RadDataForm.properties>
+        </df:RadDataForm>
+
+        <Button row="1" id="btn-primary" class="btn btn-primary" text="{{ title }}" tap="onTap" visibility="hidden"/>
+
+    </GridLayout>
+</Page>

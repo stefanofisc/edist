@@ -1,0 +1,153 @@
+<Page class="page" loaded="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:df="nativescript-ui-dataform">
+
+    <ActionBar class="action-bar">
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <GridLayout columns="*, 80">
+            <Label col="0" class="action-bar-title" text="{{ title }}"></Label>
+            <Label col="1" id="settings-button" text="&#xf013;" tap="onEdit" class="fa"/>
+            <!-- isEnabled="true" -->
+        </GridLayout>
+    </ActionBar>
+
+    <!-- LAYOUT CON RADDATAFORM CHE PRENDE DATI DA FILE JSON
+    <GridLayout rows="auto, auto, auto, *, auto" class="page-content">
+        <Label row="0" class="page-icon fa" text="&#xf2bd;" />
+        <Label row="1" id="username"/>
+        <Label row="2" class="separator" />
+        <df:RadDataForm row="3" id="myDataForm" source="{{ person }}" metadata="{{ personMetadata }}" propertyCommitted="onPropertyCommitted" isReadOnly="true"/>
+        <Button row="4" id="profile-button-save" text="Salva" tap="onTap" visibility="hidden" class="btn btn-primary" />
+    </GridLayout>
+-->
+    <GridLayout>
+        <ScrollView>
+            <FlexboxLayout flexDirection="column" class="my-profile-page-content">
+                <GridLayout rows="auto, auto, auto" class="banner" >
+                    <Image row="0" class="profileimage" src="{{ profileimage }}" />
+                    <Label row="1" id="username"/>
+                    <Label row="2" class="separator"/>
+                </GridLayout>
+                <df:RadDataForm class="my-profile-raddataform" id="myDataForm" source="{{ person }}" propertyCommitted="onPropertyCommitted" isReadOnly="true">
+                    <df:RadDataForm.groups>
+
+                        <df:PropertyGroup collapsible="true" name="Main Info" hidden="false" class="main">
+                            <df:PropertyGroup.properties>
+                                <df:EntityProperty name="name" displayName="Full Name" index="0" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="username" displayName="Matricola" index="1" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="city" displayName="Città" index="2">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="country" displayName="Paese" index="3" valuesProvider="{{ countryNames }}">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Picker" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="description" displayName="Descrizione" index="4">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                            </df:PropertyGroup.properties>
+                        </df:PropertyGroup>
+
+                        <df:PropertyGroup collapsible="true" name="Contatti" hidden="false">
+                            <df:PropertyGroup.properties>
+                                <df:EntityProperty name="email" displayName="E-Mail" index="5" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Email" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="phone1" displayName="Telefono" index="6">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Phone" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="phone2" displayName="Cellulare" index="6">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Phone" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="address" displayName="Indirizzo" index="8">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="url" displayName="Web Page" index="9">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="icq" displayName="ICQ Number" index="10">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Phone" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="skype" displayName="Skype ID" index="11">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Email" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="aim" displayName="AIM ID" index="12">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="yahoo" displayName="Yahoo ID" index="13">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Email" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="msn" displayName="Msn" index="14">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Email" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                            </df:PropertyGroup.properties>
+                        </df:PropertyGroup>
+
+                        <df:PropertyGroup collapsible="true" name="Facoltà" hidden="false">
+                            <df:PropertyGroup.properties>
+                                <df:EntityProperty name="institution" displayName="Istituzione" index="15" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                                <df:EntityProperty name="department" displayName="Dipartimento" index="16" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                            </df:PropertyGroup.properties>
+                        </df:PropertyGroup>
+
+                        <df:PropertyGroup collapsible="true" name="I miei corsi" hidden="false">
+                            <df:PropertyGroup.properties>
+                                <df:EntityProperty name="courses" displayName="I miei corsi" index="17" readOnly="true">
+                                    <df:EntityProperty.editor>
+                                        <df:PropertyEditor type="Text" />
+                                    </df:EntityProperty.editor>
+                                </df:EntityProperty>
+                            </df:PropertyGroup.properties>
+                        </df:PropertyGroup>
+
+                    </df:RadDataForm.groups>
+                </df:RadDataForm>
+                <Button id="profile-button-save" text="Salva" tap="onTap" visibility="hidden" class="btn btn-primary" />
+            </FlexboxLayout>
+        </ScrollView>
+    </GridLayout>
+</Page>

@@ -1,0 +1,147 @@
+{
+    "commitMode": "Immediate",
+    "validationMode": "Immediate",
+    "propertyAnnotations": [
+        {
+            "name": "name",
+            "displayName": "Name",
+            "isReadOnly": true,
+            "index": 0,
+            "groupName": "Main Info"
+        },
+        {
+            "name": "username",
+            "displayName": "Matricola",
+            "isReadOnly": true,
+            "index": 1,
+            "groupName": "Main Info"
+        },
+        {
+            "name": "city",
+            "displayName": "City",
+            "index": 2,
+            "groupName": "Main Info",
+            "editor": "Text"
+        },
+        {
+            "name": "country",
+            "displayName": "Country",
+            "index": 3,
+            "groupName": "Main Info",
+            "editor": "Picker",
+            "valuesProvider": [
+                "EN",
+                "FR",
+                "GER",
+                "IT",
+                "SW",
+                "US"
+            ]
+        },
+        {
+            "name": "description",
+            "displayName": "Descrizione",
+            "index": 4,
+            "groupName": "Main Info",
+            "editor": "Text"
+        },
+        {
+            "name": "email",
+            "displayName": "E-Mail",
+            "index": 5,
+            "groupName": "Contatti",
+            "editor": "Email"
+        },
+        {
+            "name": "phone1",
+            "displayName": "Telefono",
+            "index": 6,
+            "groupName": "Contatti",
+            "editor": "Phone",
+            "validators": [{
+                "name": "MinimumLength",
+                "params": {
+                    "length": 3
+                },
+                "errorMessage": "Incorrect phone number"
+            }]
+        },
+        {
+            "name": "phone2",
+            "displayName": "Cellulare",
+            "index": 7,
+            "groupName": "Contatti",
+            "editor": "Phone",
+            "validators": [{
+                "name": "MinimumLength",
+                "params": {
+                    "length": 3
+                },
+                "errorMessage": "Incorrect phone number"
+            }]
+        },
+        {
+            "name": "address",
+            "displayName": "Indirizzo",
+            "index": 8,
+            "groupName": "Contatti",
+            "editor": "Text"
+        },
+        {
+            "name": "url",
+            "displayName": "Web page",
+            "index": 9,
+            "groupName": "Contatti",
+            "editor": "Text"
+        },
+        {
+            "name": "icq",
+            "displayName": "ICQ Number",
+            "index": 10,
+            "groupName": "Contatti",
+            "editor": "Phone"
+        },
+        {
+            "name": "skype",
+            "displayName": "Skype",
+            "index": 11,
+            "groupName": "Contatti",
+            "editor": "Email"
+        },
+        {
+            "name": "aim",
+            "displayName": "AIM ID",
+            "index": 12,
+            "groupName": "Contatti",
+            "editor": "Text"
+        },
+        {
+            "name": "yahoo",
+            "displayName": "Yahoo ID",
+            "index": 13,
+            "groupName": "Contatti",
+            "editor": "Email"
+        },
+        {
+            "name": "msn",
+            "displayName": "Msn",
+            "index": 14,
+            "groupName": "Contatti",
+            "editor": "Email"
+        },
+        {
+            "name": "department",
+            "displayName": "Dipartimento",
+            "isReadOnly": true,
+            "index": 15,
+            "groupName": "Facoltà"
+        },
+        {
+            "name": "institution",
+            "displayName": "Istituzione",
+            "isReadOnly": true,
+            "index": 16,
+            "groupName": "Facoltà"
+        }
+    ]
+}

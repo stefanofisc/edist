@@ -1,0 +1,75 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:df="nativescript-ui-dataform" loaded="onLoaded" class="page">
+
+    <Page.actionBar>
+        <ActionBar title="{{ title }}" icon="" class="action-bar">
+        </ActionBar>
+    </Page.actionBar>
+    <ScrollView>
+        <FlexboxLayout class="login" rows="*,auto" flexDirection="column">
+
+            <StackLayout class="login">
+                <Image class="login" src="http://192.167.9.181/server/icons/logo_parthenope.png"/>
+                <df:RadDataForm class="login" id="myDataForm" source="{{ dataform }}" propertyCommitted="onPropertyCommitted">
+                    <df:RadDataForm.properties class="login">
+                        <df:EntityProperty id="username" displayName="" name="username" hintText="Username" index="0">
+                            <df:EntityProperty.validators>
+                                <df:NonEmptyValidator errorMessage="Username can't be empty." />
+                                <df:MinimumLengthValidator errorMessage="Username must be at least 3 characters long." length="3" />
+                            </df:EntityProperty.validators>
+                        </df:EntityProperty>
+
+                        <df:EntityProperty id="password" name="password" displayName="" hintText="Password" index="1">
+                            <df:EntityProperty.editor>
+                                <df:PropertyEditor type="Password" />
+                            </df:EntityProperty.editor>
+                            <df:EntityProperty.validators>
+                                <df:NonEmptyValidator errorMessage="Password can't be empty." />
+                                <df:MinimumLengthValidator errorMessage="Password must be at least 8 characters long." length="8" />
+                            </df:EntityProperty.validators>
+                        </df:EntityProperty>
+                    </df:RadDataForm.properties>
+                </df:RadDataForm>
+
+                <Button id="login-btn" class="btn btn-primary" text="Sign in" tap="onLogin"/>
+                <Label id="lost-pwd" text="Hai dimenticato la password? Clicca qui!" textAlignment="center" textWrap="true" tap="onLostPassword"/>
+            </StackLayout>
+            <Image class="moodle" src="~/app-root/resources/img/login_logo.png" tap="onMoodleTap"/>
+        </FlexboxLayout>
+    </ScrollView>
+</Page>
+<!-- SCHERMATA LOGIN FUNZIONANTE
+   <FlexboxLayout class="login">
+        <StackLayout class="login" orientation="vertical">
+            <Image class="login" src="~/app-root/resources/img/login_logo.png"/>
+            <TextField class="input input-border" id="username" hint="Username" text="{{ test }}"/>
+            <TextField class="input input-border" id="password" hint="Password" text = "{{ pwd }}" secure="true" />
+            <Button text="Login" class="btn btn-primary" id="login-button" tap="onLogin"></Button>
+            <Button text="Hai dimenticato lo username o la password?" id="recovery-button"></Button>
+        </StackLayout>
+    </FlexboxLayout>
+-->
+<!--
+<GridLayout class="login" rows="auto, auto, *">
+    <df:RadDataForm row="0" class="login" id="myDataForm" propertyCommitted="onPropertyCommitted">
+        <df:EntityProperty name="username" displayName="Username" index="0">
+            <df:EntityProperty.editor>
+                <df:PropertyEditor type="Text" />
+            </df:EntityProperty.editor>
+            <df:EntityProperty.validators>
+                <df:RangeValidator errorMessage="Username must be between 5-10 characters" minimum="5" maximum="100"/>
+            </df:EntityProperty.validators>
+        </df:EntityProperty>
+        <df:EntityProperty name="password" displayName="Password" index="1">
+            <df:EntityProperty.editor>
+                <df:PropertyEditor type="Password" />
+            </df:EntityProperty.editor>
+            <df:EntityProperty.validators>
+                <df:MinimumLengthValidator errorMessage="Password must be at least 8 characters long" length="8"/>
+            </df:EntityProperty.validators>
+        </df:EntityProperty>
+    </df:RadDataForm>
+    <Button row="1" text="Login" class="btn btn-primary" id="login-button" tap="onLogin"></Button>
+    <Button row="2" text="Hai dimenticato lo username o la password?" id="recovery-button"></Button>
+</GridLayout>
+-->

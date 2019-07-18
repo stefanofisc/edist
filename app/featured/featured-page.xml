@@ -1,0 +1,58 @@
+<Page class="page" loaded="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <FlexboxLayout class="search-content" flexDirection="column">
+
+        <lv:RadListView class="list-group" id="list-group" items="{{ dataItems }}" 
+                        height="auto" 
+                        marginRight="-2" 
+                        pullToRefresh="true" 
+                        pullToRefreshInitiated="onPullToRefreshInitiated" 
+                        itemSwipeProgressEnded="onSwipeCellFinished" 
+                        itemSwipeProgressStarted="onSwipeCellStarted" 
+                        itemSwipeProgressChanged="onSwipeCellProgressChanged" 
+                        itemSwiping="onItemSwiping" 
+                        swipeActions="true">
+            <!-- >> listview-item-layouts-grid-xml -->
+            <lv:RadListView.listViewLayout>
+                <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+            </lv:RadListView.listViewLayout>
+            <lv:RadListView.itemSwipeTemplate>
+                <GridLayout columns="*, auto" marginBottom="12" marginRight="2" paddingLeft="8" paddingRight="8">
+                    <StackLayout id="delete-view" col="1" style="background-color: red;" tap="onRightSwipeClick" paddingLeft="16" paddingRight="16" orientation="horizontal">
+                        <Label text="&#xf1f8;" verticalAlignment="center" horizontalAlignment="center" class="fa"/>
+                    </StackLayout>
+                </GridLayout>
+            </lv:RadListView.itemSwipeTemplate>
+
+            <!-- << listview-item-template -->
+            <lv:RadListView.itemTemplate>
+
+                <GridLayout rows="*" class="featured-grid-layout">
+                    <GridLayout class="featured-grid-layout-1" rows="*" columns="100, *" marginBottom="2" marginRight="2">
+                        <!-- <Image horizontalAlignment="stretch" height="250" ios:stretch="aspectFill" src="{{ image }}"/> -->
+                        <Label id="icon" col="0" text="{{ shortname }}" textWrap="true" />
+                        <GridLayout col="1">
+                            <StackLayout col="0" class="my-course-list-item">
+                                <Label id="course-name" text="{{ item }}" textWrap="true"/>
+                                <Label id="course-summary" text="{{ summary }}" textWrap="true"/>
+                            </StackLayout>
+                        </GridLayout>
+                    </GridLayout>
+                </GridLayout>
+
+            </lv:RadListView.itemTemplate>
+        </lv:RadListView>
+    </FlexboxLayout>
+
+</Page>

@@ -1,0 +1,51 @@
+<Page navigatingTo="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" 
+    xmlns:lv="nativescript-ui-listview">
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <GridLayout>
+        <ScrollView>
+            <FlexboxLayout class="search-content" flexDirection="column" id="container">
+                <!-- <GridLayout class="search-header-img" columns="auto, *">
+                    <Image class="icon" col="0" src="http://192.167.9.181/server/icons/search.png"/>
+                    <Label text="Trova i tuoi corsi..." id="search-header-text" col="1" />
+                </GridLayout> -->
+                <SearchBar id="searchBar" hint="Cerca un corso..." style="placeholder-color:rgba(255,255,255,255);" text="" clear="onClear" submit="onSubmit" />
+                <Label id="search-result-header"></Label>
+                <lv:RadListView class="list-group" id="list-group" items="{{ dataItems }}" marginRight="-2">
+                    <!-- >> listview-item-layouts-grid-xml -->
+                    <lv:RadListView.listViewLayout>
+                        <lv:ListViewLinearLayout scrollDirection="Vertical" itemHeight="250" spanCount="2" itemInsertAnimation="Scale" itemDeleteAnimation="Scale"/>
+                    </lv:RadListView.listViewLayout>
+                    <lv:RadListView.itemTemplate>
+                        <StackLayout>
+                            <GridLayout rows="*" class="featured-grid-layout">
+                                <GridLayout class="featured-grid-layout-1" rows="*" columns="100, *" marginBottom="2" marginRight="2">
+                                    <!-- <Image horizontalAlignment="stretch" height="250" ios:stretch="aspectFill" src="{{ image }}"/> -->
+                                    <Label id="icon" col="0" text="{{ shortname }}" textWrap="true" />
+                                    <GridLayout col="1">
+                                        <StackLayout col="0" class="my-course-list-item">
+                                            <Label id="course-name" text="{{ item }}" textWrap="true"/>
+                                            <Label id="course-summary" text="{{ summary }}" textWrap="true"/>
+                                        </StackLayout>
+                                    </GridLayout>
+                                </GridLayout>
+                            </GridLayout>
+                            <GridLayout class="item-info" columns="20, *">
+                                <Label id="item" col="1" text="{{ info }}" textWrap="true"/>
+                            </GridLayout>
+                        </StackLayout>
+                    </lv:RadListView.itemTemplate>
+                </lv:RadListView>
+            </FlexboxLayout>
+        </ScrollView>
+    </GridLayout>
+</Page>

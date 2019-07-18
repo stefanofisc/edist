@@ -1,0 +1,62 @@
+<nsDrawer:RadSideDrawer id="sideDrawer" xmlns:nsDrawer="nativescript-ui-sidedrawer" loaded="onLoaded">
+    <nsDrawer:RadSideDrawer.drawerTransition>
+        <nsDrawer:SlideInOnTopTransition/>
+    </nsDrawer:RadSideDrawer.drawerTransition>
+
+    <nsDrawer:RadSideDrawer.drawerContent>
+        <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left">
+            <StackLayout class="sidedrawer-header">
+                <Label class="sidedrawer-header-image fa" text="&#xf2bd;" />
+                <Label id="fullname" class="sidedrawer-header-brand" text="{{ fullname }}" />
+                <Label id="connectedas" class="footnote" text="{{ connectedAs }}" />
+            </StackLayout>
+
+            <ScrollView row="1">
+                <StackLayout class="sidedrawer-content">
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Home' ? ' selected': '') }}"
+                        route="home/home-page" title="Home" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf015;" class="fa" />
+                        <Label row="0" col="1" text="Home" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Browse' ? ' selected': '') }}"
+                        route="browse/browse-page" title="Browse" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf1ea;" class="fa" />
+                        <Label row="0" col="1" text="Categorie di corso" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Search' ? ' selected': '') }}"
+                        route="search/search-page" title="Search" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf002;" class="fa" />
+                        <Label row="0" col="1" text="Cerca corsi" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Featured' ? ' selected': '') }}"
+                        route="featured/featured-page" title="Featured" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf005;" class="fa" />
+                        <Label row="0" col="1" text="I miei corsi" class="p-r-10" />
+                    </GridLayout>
+
+                    <StackLayout class="hr-light"></StackLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+                        route="settings/settings-page" title="Settings" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf013;" class="fa" />
+                        <Label row="0" col="1" text="Impostazioni" class="p-r-10" />
+                    </GridLayout>
+
+                    <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Login' ? ' selected': '') }}"
+                        route="login/login-page" title="Login" tap="onNavigationItemTap">
+                        <Label row="0" col="0" text="&#xf011;" class="fa" />
+                        <Label row="0" col="1" text="Logout" class="p-r-10" />
+                    </GridLayout>
+
+                </StackLayout>
+            </ScrollView>
+        </GridLayout>
+    </nsDrawer:RadSideDrawer.drawerContent>
+
+    <nsDrawer:RadSideDrawer.mainContent>
+        <Frame defaultPage="login/login-page"></Frame>
+    </nsDrawer:RadSideDrawer.mainContent>
+</nsDrawer:RadSideDrawer>

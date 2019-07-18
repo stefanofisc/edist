@@ -1,0 +1,18 @@
+<Page class="page" loaded="onNavigatingTo" 
+    xmlns="http://schemas.nativescript.org/tns.xsd" >
+
+    <ActionBar class="action-bar">
+
+        <NavigationButton ios:visibility="collapsed" icon="res://menu" tap="onDrawerButtonTap"></NavigationButton>
+
+        <ActionItem icon="res://navigation/menu" android:visibility="collapsed" tap="onDrawerButtonTap" ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="{{ title }}"></Label>
+    </ActionBar>
+
+    <GridLayout class="page-content">
+        <Label text="&#xf070;" class="fa page-icon" />
+        <Label text="{{ errorMessage }}" class="page-placeholder" textWrap="true"/>
+    </GridLayout>
+
+</Page>
